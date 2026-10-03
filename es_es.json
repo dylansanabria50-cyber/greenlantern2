@@ -1,0 +1,10 @@
+{
+  "item.greenlantern.power_ring": "Anillo de Poder de Linterna Verde",
+  "block.greenlantern.construct_block": "Construccion de Energia Verde",
+  "block.greenlantern.shield_block": "Burbuja de Energia Verde",
+  "key.categories.greenlantern": "Linterna Verde",
+  "key.greenlantern.flight": "Activar/Desactivar vuelo",
+  "key.greenlantern.blast": "Abrir ventana de creacion",
+  "key.greenlantern.shield": "Escudo de energia",
+  "key.greenlantern.wall": "Muro de energia"
+}
