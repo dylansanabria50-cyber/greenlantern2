@@ -42,3 +42,38 @@ tasks.named('jar', Jar).configure {
 }
 
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+// ===== Proyecto "plano": todos los archivos estan en la raiz, sin carpetas =====
+// Los .java se compilan desde la raiz y los recursos se colocan en su ruta correcta al compilar.
+def flatResDir = new File(layout.buildDirectory.get().asFile, 'flat-resources')
+
+tasks.register('stageResources', Sync) {
+    into flatResDir
+    from(projectDir) { include 'mods.toml'; into 'META-INF' }
+    from(projectDir) { include 'pack.mcmeta' }
+    from(projectDir) { include 'lang_es_es.json'; rename { 'es_es.json' }; into 'assets/greenlantern/lang' }
+    from(projectDir) { include 'lang_en_us.json'; rename { 'en_us.json' }; into 'assets/greenlantern/lang' }
+    from(projectDir) { include 'blockstate_construct_block.json'; rename { 'construct_block.json' }; into 'assets/greenlantern/blockstates' }
+    from(projectDir) { include 'blockstate_shield_block.json'; rename { 'shield_block.json' }; into 'assets/greenlantern/blockstates' }
+    from(projectDir) { include 'model_block_construct_block.json'; rename { 'construct_block.json' }; into 'assets/greenlantern/models/block' }
+    from(projectDir) { include 'model_block_shield_block.json'; rename { 'shield_block.json' }; into 'assets/greenlantern/models/block' }
+    from(projectDir) { include 'model_item_power_ring.json'; rename { 'power_ring.json' }; into 'assets/greenlantern/models/item' }
+    from(projectDir) { include 'texture_item_power_ring.png'; rename { 'power_ring.png' }; into 'assets/greenlantern/textures/item' }
+    from(projectDir) { include 'texture_block_construct_block.png'; rename { 'construct_block.png' }; into 'assets/greenlantern/textures/block' }
+    from(projectDir) { include 'texture_block_shield_block.png'; rename { 'shield_block.png' }; into 'assets/greenlantern/textures/block' }
+    from(projectDir) { include 'recipe_power_ring.json'; rename { 'power_ring.json' }; into 'data/greenlantern/recipes' }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [projectDir]
+            include '*.java'
+        }
+        resources {
+            srcDirs = [flatResDir]
+        }
+    }
+}
+
+tasks.named('processResources').configure { dependsOn 'stageResources' }

@@ -1,6 +1,4 @@
-COMO OBTENER EL .JAR (sin instalar nada)
-1. Crea una cuenta gratis en github.com y un repositorio nuevo.
-2. Sube TODO el contenido de esta carpeta (incluida la carpeta oculta .github).
-3. Ve a la pestana "Actions", espera 2-4 minutos a que termine "Build mod".
-4. Entra al proceso terminado y descarga "greenlantern-jar" (abajo, en Artifacts).
-5. Descomprime y copia greenlantern-1.0.0.jar a la carpeta mods de Minecraft 1.20.1 con Forge 47.2.0+.
+PROYECTO PLANO (sin carpetas)
+Sube TODOS los archivos de esta carpeta a la raiz de tu repositorio de GitHub (Add file > Upload files).
+No hace falta crear carpetas. Los archivos que ya existan se reemplazan.
+Luego espera el tilde verde en la pestana Actions y baja "greenlantern-jar".

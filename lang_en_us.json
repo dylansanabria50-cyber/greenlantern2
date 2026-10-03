@@ -1,0 +1,10 @@
+{
+  "item.greenlantern.power_ring": "Green Lantern Power Ring",
+  "block.greenlantern.construct_block": "Green Energy Construct",
+  "block.greenlantern.shield_block": "Green Energy Bubble",
+  "key.categories.greenlantern": "Green Lantern",
+  "key.greenlantern.flight": "Toggle flight",
+  "key.greenlantern.blast": "Open conjure window",
+  "key.greenlantern.shield": "Energy shield",
+  "key.greenlantern.wall": "Energy wall"
+}
